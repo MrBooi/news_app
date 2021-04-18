@@ -14,7 +14,7 @@ class SearchTopHeadlineNews
   @override
   Future<Either<Failure, TopHeadlineResponse>> call(
       SearchTopHeadlineNewsParams params) async {
-    return await newsRespository.searchTopHeadlineNews(params.keyword);
+    return newsRespository.searchTopHeadlineNews(params.keyword);
   }
 }
 

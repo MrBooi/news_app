@@ -14,7 +14,7 @@ class GetTopHeadlineNews
   @override
   Future<Either<Failure, TopHeadlineResponse>> call(
       GetTopHeadlineNewsParams params) async {
-    return await newsRespository.getTopHeadlineNews(params.category);
+    return newsRespository.getTopHeadlineNews(params.category);
   }
 }
 
