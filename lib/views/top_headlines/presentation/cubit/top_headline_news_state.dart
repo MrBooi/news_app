@@ -1,10 +1,18 @@
-part of 'top_headline_news_cubit.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:news_app/core/error/failure.dart';
+import 'package:news_app/views/top_headlines/domain/entities/top_headline_response.dart';
 
-abstract class TopHeadlineNewsState extends Equatable {
-  const TopHeadlineNewsState();
+part 'top_headline_news_state.freezed.dart';
 
-  @override
-  List<Object> get props => [];
+@freezed
+abstract class TopHeadlineNewsState with _$TopHeadlineNewsState {
+  const factory TopHeadlineNewsState.loading() = TopHeadlineNewsStateLoading;
+  const factory TopHeadlineNewsState.empty() = TopHeadlineNewsStateEmpty;
+  const factory TopHeadlineNewsState.loaded({
+    required TopHeadlineResponse topHeadline,
+  }) = TopHeadlineNewsStateLoaded;
+  const factory TopHeadlineNewsState.failure({required Failure failure}) =
+      TopHeadlineNewsStateFailure;
+  factory TopHeadlineNewsState.initial() =>
+      const TopHeadlineNewsState.loading();
 }
-
-class TopHeadlineNewsInitial extends TopHeadlineNewsState {}
