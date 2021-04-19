@@ -22,7 +22,7 @@ class _$TopHeadlineResponseTearOff {
 
   _TopHeadlineResponse call(
       {required String status,
-      required String totalResults,
+      required int totalResults,
       required List<TopheadlineArticles> articles}) {
     return _TopHeadlineResponse(
       status: status,
@@ -42,7 +42,7 @@ const $TopHeadlineResponse = _$TopHeadlineResponseTearOff();
 /// @nodoc
 mixin _$TopHeadlineResponse {
   String get status => throw _privateConstructorUsedError;
-  String get totalResults => throw _privateConstructorUsedError;
+  int get totalResults => throw _privateConstructorUsedError;
   List<TopheadlineArticles> get articles => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -57,7 +57,7 @@ abstract class $TopHeadlineResponseCopyWith<$Res> {
           TopHeadlineResponse value, $Res Function(TopHeadlineResponse) then) =
       _$TopHeadlineResponseCopyWithImpl<$Res>;
   $Res call(
-      {String status, String totalResults, List<TopheadlineArticles> articles});
+      {String status, int totalResults, List<TopheadlineArticles> articles});
 }
 
 /// @nodoc
@@ -83,7 +83,7 @@ class _$TopHeadlineResponseCopyWithImpl<$Res>
       totalResults: totalResults == freezed
           ? _value.totalResults
           : totalResults // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       articles: articles == freezed
           ? _value.articles
           : articles // ignore: cast_nullable_to_non_nullable
@@ -100,7 +100,7 @@ abstract class _$TopHeadlineResponseCopyWith<$Res>
       __$TopHeadlineResponseCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String status, String totalResults, List<TopheadlineArticles> articles});
+      {String status, int totalResults, List<TopheadlineArticles> articles});
 }
 
 /// @nodoc
@@ -128,7 +128,7 @@ class __$TopHeadlineResponseCopyWithImpl<$Res>
       totalResults: totalResults == freezed
           ? _value.totalResults
           : totalResults // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       articles: articles == freezed
           ? _value.articles
           : articles // ignore: cast_nullable_to_non_nullable
@@ -152,7 +152,7 @@ class _$_TopHeadlineResponse implements _TopHeadlineResponse {
   @override
   final String status;
   @override
-  final String totalResults;
+  final int totalResults;
   @override
   final List<TopheadlineArticles> articles;
 
@@ -197,7 +197,7 @@ class _$_TopHeadlineResponse implements _TopHeadlineResponse {
 abstract class _TopHeadlineResponse implements TopHeadlineResponse {
   const factory _TopHeadlineResponse(
       {required String status,
-      required String totalResults,
+      required int totalResults,
       required List<TopheadlineArticles> articles}) = _$_TopHeadlineResponse;
 
   factory _TopHeadlineResponse.fromJson(Map<String, dynamic> json) =
@@ -206,7 +206,7 @@ abstract class _TopHeadlineResponse implements TopHeadlineResponse {
   @override
   String get status => throw _privateConstructorUsedError;
   @override
-  String get totalResults => throw _privateConstructorUsedError;
+  int get totalResults => throw _privateConstructorUsedError;
   @override
   List<TopheadlineArticles> get articles => throw _privateConstructorUsedError;
   @override

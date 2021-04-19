@@ -7,7 +7,7 @@ part 'top_headline_response.g.dart';
 abstract class TopHeadlineResponse with _$TopHeadlineResponse {
   const factory TopHeadlineResponse({
     required String status,
-    required String totalResults,
+    required int totalResults,
     required List<TopheadlineArticles> articles,
   }) = _TopHeadlineResponse;
 
