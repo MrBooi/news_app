@@ -31,6 +31,8 @@ class TopHeadlineNewsCubit extends Cubit<TopHeadlineNewsState> {
   ///
   ///
   Future<void> getNews(String category) async {
+    emit(const TopHeadlineNewsState.loading());
+
     final eitherTopHeadlineOrFailure = await getTopHeadlineNews(
       GetTopHeadlineNewsParams(category: category),
     );

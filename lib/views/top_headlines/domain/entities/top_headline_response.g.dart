@@ -10,7 +10,7 @@ _$_TopHeadlineResponse _$_$_TopHeadlineResponseFromJson(
     Map<String, dynamic> json) {
   return _$_TopHeadlineResponse(
     status: json['status'] as String,
-    totalResults: json['totalResults'] as String,
+    totalResults: json['totalResults'] as int,
     articles: (json['articles'] as List<dynamic>)
         .map((e) => TopheadlineArticles.fromJson(e as Map<String, dynamic>))
         .toList(),

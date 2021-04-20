@@ -6,6 +6,7 @@ analyzer:
     must_be_immutable: error
     sort_pub_dependencies: ignore
     implicit_dynamic_map_literal: ignore
+    sized_box_for_whitespace: ignore
   strong-mode:
     implicit-casts: false
     implicit-dynamic: false
