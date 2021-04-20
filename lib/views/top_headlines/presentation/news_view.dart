@@ -27,13 +27,17 @@ class NewsView extends StatelessWidget {
               child: Text('Empty...'),
             ),
             loaded: (articles) {
-              print(articles);
-              return ListView.builder(
-                itemCount: articles.articles.length,
-                itemBuilder: (_, index) {
-                  return ArticleCard();
-                },
-                padding: const EdgeInsets.only(bottom: 10),
+              return SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    ...articles.articles.map((article) {
+                      return ArticleCard(
+                        article: article,
+                      );
+                    }).toList()
+                  ],
+                ),
               );
             },
             failure: (failure) => Center(

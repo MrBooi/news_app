@@ -1,9 +1,15 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/views/top_headlines/domain/entities/top_headline_articles.dart';
 
 import 'article_poster.dart';
 import 'article_text.dart';
 
 class ArticleCard extends StatelessWidget {
+  final TopheadlineArticles article;
+
+  const ArticleCard({required this.article});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,10 +19,10 @@ class ArticleCard extends StatelessWidget {
         color: Colors.white,
         child: Container(
             width: 333.0,
-            height: 285.0,
+            height: MediaQuery.of(context).size.height / 2.6,
             child: Column(
               children: [
-                ArticlePoster(),
+                ArticlePoster(imageUrl: article.urlToImage),
                 const SizedBox(
                   height: 5,
                 ),
@@ -30,18 +36,18 @@ class ArticleCard extends StatelessWidget {
   }
 
   Widget _renderNewsTitle() {
-    return const ArticleText(
-      text: 'Cristiano Ronaldo first to break the 200m mark on instagram',
-      maxLines: 3,
+    return ArticleText(
+      text: article.title,
+      maxLines: 2,
       fontWeight: FontWeight.w700,
       color: Colors.black,
+      overflow: TextOverflow.ellipsis,
     );
   }
 
   Widget _renderNewsDescription() {
-    return const ArticleText(
-      text:
-          " It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    return ArticleText(
+      text: article.description,
       maxLines: 2,
       color: Colors.grey,
       overflow: TextOverflow.ellipsis,
@@ -52,15 +58,21 @@ class ArticleCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
       child: Row(
-        children: const [
-          Icon(
+        children: [
+          const Icon(
             Icons.timelapse_outlined,
             size: 15,
             color: Colors.grey,
           ),
+          const SizedBox(
+            width: 5,
+          ),
           Text(
-            "20 Aprl 20",
-            style: TextStyle(color: Colors.grey),
+            formatDate(
+              DateTime.parse(article.publishedAt),
+              [yy, '-', M, '-', d],
+            ),
+            style: const TextStyle(color: Colors.grey),
           ),
         ],
       ),
